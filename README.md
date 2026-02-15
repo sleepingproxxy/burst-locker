@@ -205,14 +205,8 @@ python burst_blocker.py \
 
 ---
 
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License
-
-Copyright (c) 2024 Burst Blocker
+License
+Copyright (c) 2026 Burst Blocker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -233,14 +227,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-**Why MIT License?**
-- ✅ Permissive - allows commercial use
-- ✅ Flexible - modification and distribution allowed  
-- ✅ Simple - short and understandable
-- ✅ Compatible - works with all dependencies
-- ✅ Community - most popular open-source license
 
----
 
 ## ⚠️ Disclaimer
 
@@ -280,8 +267,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📞 Support
 
 - **Issues**: GitHub Issues
-- **Telegram**: [@username](https://t.me/username)
-- **Email**: support@example.com
 
 ---
 
@@ -293,18 +278,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-This README features:
-- **Clean, modern design** with emoji indicators
-- **Structured sections** with table of contents
-- **Visual elements** like badges and tables
-- **Clear examples** for all use cases
-- **Professional disclaimer** and legal information
-- **MIT License** recommendation (most suitable for this type of tool)
-- **Mobile-friendly** formatting
-
-The MIT License is recommended because:
-1. It's permissive and widely used
-2. Allows both personal and commercial use
-3. Simple and legally sound
-4. Compatible with all dependencies (Telethon, Requests, etc.)
-5. No "viral" requirements (unlike GPL)
