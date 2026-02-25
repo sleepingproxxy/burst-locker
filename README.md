@@ -3,10 +3,6 @@ Here's a comprehensive README.md for your Telegram reporter tool:
 ```markdown
 # BurstLocker - Telegram Account Reporter Tool
 
-[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Telethon](https://img.shields.io/badge/telethon-latest-blue)](https://github.com/LonamiWebs/Telethon)
-
 BurstLocker is a powerful Telegram automation tool designed for reporting accounts/channels using multiple sessions simultaneously. It features Tor integration for IP rotation, session management with encryption, and multiple reporting strategies.
 
 ## ⚠️ Disclaimer
