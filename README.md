@@ -1,280 +1,262 @@
-# 📱 Burst Blocker - Telegram Report Tool
+Here's a comprehensive README.md for your Telegram reporter tool:
 
-<p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.0-blue.svg" alt="Version 1.0.0"/>
-  <img src="https://img.shields.io/badge/python-3.7+-green.svg" alt="Python 3.7+"/>
-  <img src="https://img.shields.io/badge/license-MIT-yellow.svg" alt="License MIT"/>
-  <img src="https://img.shields.io/badge/Telegram-API-blue?logo=telegram" alt="Telegram API"/>
-  <img src="https://img.shields.io/badge/Tor-SOCKS5-7D4698?logo=tor" alt="Tor SOCKS5"/>
-</p>
+```markdown
+# BurstLocker - Telegram Account Reporter Tool
 
-<p align="center">
-  <b>A powerful tool for reporting spam, abuse, and policy violations on Telegram</b><br>
-  <i>Report with multiple reasons, burst mode, and Tor IP rotation</i>
-</p>
+[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Telethon](https://img.shields.io/badge/telethon-latest-blue)](https://github.com/LonamiWebs/Telethon)
 
----
-
-## 📋 Table of Contents
-
-- [Features](#-features)
-- [Installation](#-installation)
-- [Quick Start](#-quick-start)
-- [Usage Examples](#-usage-examples)
-- [Available Report Reasons](#-available-report-reasons)
-- [Tor Integration](#-tor-integration)
-- [License](#-license)
-- [Disclaimer](#-disclaimer)
-
----
-
-## ✨ Features
- ____________________________________________________________________________________
-| Feature                     | Description                                          |
-|-----------------------------|------------------------------------------------------|
-| 🎯 **3 Report Modes**      | Single, Burst (multiple reasons), Full (all reasons)  |
-| 🔄 **IP Rotation**         | Automatic Tor IP switching with configurable interval |
-| 🕵️ **User-Agent Rotation** | Random User-Agent headers for API requests            |
-| 📊 **Bulk Reporting**      | Configurable number of reports per reason             |
-| 🌐 **SOCKS5 Proxy**        | Full Tor proxy support                                |
-| 🧪 **Test Mode**           | Dry-run without actual reporting                      |
-| 🛡️ **10+ Report Reasons**  | All official Telegram report categories               |
-|____________________________________________________________________________________|
----
-
-## 🔧 Installation
-
-### Prerequisites
-
-- Python 3.7 or higher
-- Telegram API credentials ([my.telegram.org](https://my.telegram.org))
-- (Optional) Tor service for IP rotation
-
-### Setup
-
-```bash
-# Clone repository
-git clone https://github.com/sleepingproxxy/burst-blocker.git
-cd burst-blocker
-
-# Install dependencies
-pip install -r requirements.txt
-
-# For Tor IP switching (optional)
-pip install stem
-```
-
-
-
-
-## 🚀 Quick Start
-
-### 1. Get Telegram API Credentials
-
-1. Visit [my.telegram.org](https://my.telegram.org)
-2. Login with your phone number
-3. Go to "API Development Tools"
-4. Create new application
-5. Copy `api_id` and `api_hash`
-
-### 2. Basic Usage
-
-```bash
-# Report spammer with 5 reports
-python burst_blocker.py \
-  --api_id 1234567 \
-  --api_hash abcdef123456789 \
-  --target @spammer_username \
-  --reason spam \
-  --count 5
-```
-
-
-
-## 📚 Usage Examples
-
-### Single Mode - One Reason
-```bash
-python burst_blocker.py \
-  --api_id 12345 \
-  --api_hash abcdef \
-  --target @spam_bot \
-  --reason spam \
-  --count 10
-```
-
-### Burst Mode - Multiple Reasons
-```bash
-python burst_blocker.py \
-  --api_id 12345 \
-  --api_hash abcdef \
-  --target @fake_account \
-  --user_mode Burst \
-  --reason fake,spam,violence \
-  --count 3
-```
-
-### Full Mode - All Reasons
-```bash
-python burst_blocker.py \
-  --api_id 12345 \
-  --api_hash abcdef \
-  --target +1234567890 \
-  --user_mode Full \
-  --count 1
-```
-
-### With Tor IP Rotation
-```bash
-python burst_blocker.py \
-  --api_id 12345 \
-  --api_hash abcdef \
-  --target @attacker \
-  --reason copyright \
-  --count 20 \
-  --use_tor \
-  --interval 30
-```
-
-### Test Mode
-```bash
-python burst_blocker.py \
-  --api_id 12345 \
-  --api_hash abcdef \
-  --target @test_user \
-  --reason spam \
-  --test
-```
-
----
-
-## 🎯 Available Report Reasons
-
-| Key | Full Name | Description |
-|-----|-----------|-------------|
-| `child_abuse` | Child Abuse | Child exploitation, endangering minors |
-| `copyright` | Copyright | Copyright infringement, pirated content |
-| `fake` | Fake Account | Impersonation, fake identity |
-| `geo` | Geo-Irrelevant | Location-irrelevant content |
-| `drugs` | Illegal Drugs | Drug trafficking, substance abuse |
-| `other` | Other | Miscellaneous violations |
-| `personal` | Personal Details | Private info, doxxing |
-| `porn` | Pornography | Adult content, obscene material |
-| `spam` | Spam | Unsolicited messages, scams |
-| `violence` | Violence | Threats, harassment, hate speech |
-
----
-
-## 🌐 Tor Integration
-
-### Setting Up Tor
-
-1. **Install Tor:**
-   ```bash
-   # Ubuntu/Debian
-   sudo apt install tor
-
-   # macOS
-   brew install tor
-
-   # Windows
-   # Download from https://www.torproject.org/
-   ```
-
-2. **Configure Tor Control Port:**
-   
-   Edit `/etc/tor/torrc` (or `torrc` without path):
-   ```
-   ControlPort 9051
-   CookieAuthentication 1
-   # OR for password auth:
-   # HashedControlPassword (your_hashed_password)
-   ```
-
-3. **Start Tor:**
-   ```bash
-   sudo systemctl start tor
-   # or
-   tor
-   ```
-
-4. **Test connection:**
-   ```bash
-   python burst_blocker.py --api_id 12345 --api_hash abcdef --target @test --reason spam --use_tor --test
-   ```
-
----
-
-License
-Copyright (c) 2026 Burst Blocker
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
-
+BurstLocker is a powerful Telegram automation tool designed for reporting accounts/channels using multiple sessions simultaneously. It features Tor integration for IP rotation, session management with encryption, and multiple reporting strategies.
 
 ## ⚠️ Disclaimer
 
+This tool is for **educational purposes only**. Misuse of this tool to harass, spam, or violate Telegram's Terms of Service is strictly prohibited. Users are responsible for complying with all applicable laws and Telegram's policies. The developer assumes no liability and is not responsible for any misuse or damage caused by this program.
+
+## ✨ Features
+
+- **Multi-session Management**: Handle multiple Telegram accounts simultaneously
+- **Tor Integration**: Automatic IP rotation and anonymity support
+- **Encrypted Sessions**: Secure storage of session data with password-based encryption
+- **Multiple Reporting Modes**:
+  - `Single`: Report with a specific reason
+  - `Burst`: Report with multiple reasons sequentially
+  - `Full`: Report with all available reasons
+- **Interactive Configuration**: Easy setup through interactive prompts
+- **Persistent Storage**: Save and load configurations, targets, and sessions
+- **Proxy Support**: SOCKS5 proxy support via Tor
+- **User-Agent Rotation**: Automatic User-Agent switching
+- **Configurable Delays**: Random delays between operations to avoid detection
+
+## 🚀 Installation
+
+### Prerequisites
+
+- Python 3.8 or higher
+- Tor service (optional, for IP rotation)
+- Telegram API credentials (api_id and api_hash)
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/burstlocker.git
+cd burstlocker
 ```
-THIS SOFTWARE IS PROVIDED FOR EDUCATIONAL PURPOSES ONLY
 
-By using this software, you agree to the following:
+### Step 2: Install Dependencies
 
-1. **Legitimate Use Only**: This tool is designed exclusively for reporting
-   actual spam, harassment, and policy violations on Telegram.
-
-2. **Account Responsibility**: Your Telegram account may be limited or banned
-   if you misuse this tool. You alone are responsible for your account.
-
-3. **Rate Limiting**: Respect Telegram's rate limits. Excessive reporting may
-   result in temporary or permanent account restrictions.
-
-4. **No Warranty**: This software is provided "AS IS" without warranty of any
-   kind. The authors are not responsible for any consequences of its use.
-
-5. **Compliance**: You must comply with Telegram's Terms of Service and
-   all applicable laws and regulations.
-
-6. **Ethical Use**: Do not use this tool for harassment, false reporting,
-   or any unethical purposes.
+```bash
+pip install -r requirements.txt
 ```
 
----
+### Step 3: Install and Configure Tor (Optional)
 
-## 🤝 Contributing
+For IP rotation feature:
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+**Ubuntu/Debian:**
+```bash
+sudo apt-get install tor
+sudo systemctl start tor
+```
+
+**macOS:**
+```bash
+brew install tor
+brew services start tor
+```
+
+**Windows:**
+Download and install Tor from [https://www.torproject.org/](https://www.torproject.org/)
+
+Configure Tor control port (usually 9051) by editing `/etc/tor/torrc`:
+```
+ControlPort 9051
+CookieAuthentication 1
+```
+
+## 📋 Requirements
+
+Create a `requirements.txt` file:
+
+```
+cryptography==41.0.7
+telethon==1.34.0
+stem==1.8.2
+fake-useragent==1.4.0
+requests==2.31.0
+pysocks==1.7.1
+```
+
+Install with:
+```bash
+pip install -r requirements.txt
+```
+
+## 🔧 Configuration
+
+### Getting Telegram API Credentials
+
+1. Visit https://my.telegram.org/apps
+2. Log in with your phone number
+3. Create an application
+4. Copy `api_id` and `api_hash`
+
+### Data Directory Structure
+
+The tool creates and uses the following structure in the `data/` directory:
+```
+data/
+├── targets.txt          # Target usernames/IDs (one per line)
+├── sessions.json        # Encrypted session data
+├── net_config.json      # Network configuration
+└── config.json          # Main configuration file
+```
+
+## 📖 Usage
+
+### Basic Usage
+
+```bash
+python burst_locker.py
+```
 
 
----
+### Available Report Reasons
+
+- `child_abuse` - Child abuse content
+- `copyright` - Copyright infringement
+- `fake` - Fake account/channel
+- `geo` - Geo-irrelevant content
+- `drugs` - Illegal drugs content
+- `other` - Other reasons
+- `personal` - Personal details exposed
+- `porn` - Pornographic content
+- `spam` - Spam
+- `violence` - Violent content
+
+### Examples
+
+**Interactive mode with Tor:**
+```bash
+python burst_locker.py -i --tor
+```
+
+**Single report mode:**
+```bash
+python burst_locker.py -m single -r spam -n 5 --target username
+```
+
+**Burst mode with multiple reasons:**
+```bash
+python burst_locker.py -m burst -r spam,porn,violence -n 3
+```
+
+**Full mode (all reasons):**
+```bash
+python burst_locker.py -m full -n 2
+```
+
+**Using custom config:**
+```bash
+python burst_locker.py -c /path/to/config.json
+```
+
+## 🎯 Target Formats
+
+Targets can be specified in various formats:
+- Username: `@username` or `username`
+- Phone number: `+1234567890`
+- Channel/Group ID: `-1001234567890`
+- Channel/Group link: `https://t.me/channel_name`
+
+## 🔒 Security Features
+
+- **Session Encryption**: All session data is encrypted using Fernet (symmetric encryption)
+- **Password-based Key Derivation**: PBKDF2 with SHA256 for key generation
+- **Random Salt**: Unique salt for each encryption key
+- **Tor Integration**: Optional IP anonymization
+- **User-Agent Rotation**: Randomized User-Agent headers
+
+## 🛡️ Rate Limiting and Anti-Detection
+
+- Random delays between operations (2-5 seconds between clients, 5-10 seconds between targets)
+- Configurable IP rotation intervals
+- Progressive backoff on connection failures
+- Session persistence to avoid re-authentication
+
+## 📁 Project Structure
+
+```
+burstlocker/
+├── burst_locker.py          # Main application file
+├── requirements.txt         # Python dependencies
+├── README.md               # This file
+├── LICENSE                 # MIT License
+└── data/                   # Data directory (created on first run)
+    ├── targets.txt
+    ├── sessions.json
+    ├── net_config.json
+    └── config.json
+```
+
+## ⚙️ Configuration Files
+
+### net_config.json Example
+```json
+{
+    "host": "127.0.0.1",
+    "port": 9050,
+    "control_port": 9051,
+    "password": null,
+    "interval": 10,
+    "use": false
+}
+```
+
+### sessions.json Example
+```json
+{
+    "+1234567890": {
+        "api_id": 12345,
+        "api_hash": "your_api_hash_here"
+    }
+}
+```
+## 📝 License
+
+This project is licensed under the MIT License.
+
+## ⚡ Performance Tips
+
+1. **Use multiple accounts**: Distribute reports across different Telegram accounts
+2. **Enable Tor**: Use Tor for IP rotation to avoid rate limiting
+3. **Adjust delays**: Modify sleep intervals based on your needs
+4. **Session reuse**: Sessions are saved, so you don't need to re-authenticate
+5. **Monitor rate limits**: Watch for 420 FLOOD_WAIT errors and adjust accordingly
+
+## 🐛 Troubleshooting
+
+**Issue**: Connection refused when using Tor
+**Solution**: Ensure Tor is running and configured correctly:
+```bash
+# Check if Tor is running
+sudo systemctl status tor
+
+# Test Tor connection
+curl --socks5 127.0.0.1:9050 https://check.torproject.org/api/ip
+```
+
+**Issue**: Authentication failed
+**Solution**: Verify your API credentials and ensure 2FA password is correct if enabled
+
+**Issue**: Flood wait errors
+**Solution**: Increase delays between operations or use more accounts with IP rotation
 
 ## 📞 Support
 
-- **Issues**: GitHub Issues
-
+For issues, questions, or contributions, please open an issue on GitHub.
 ---
 
-<p align="center">
-  Made with ❤️ for a cleaner Telegram
-  <br>
-  <sub>Fight spam, not users</sub>
-</p>
-
----
+**Remember**: Use this tool responsibly and in accordance with Telegram's Terms of Service. The developer is not responsible for any misuse or consequences resulting from the use of this software.
+```
 
