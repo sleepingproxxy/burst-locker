@@ -252,7 +252,7 @@ class DataWorker:
     
     def __init__(self, config: Optional[Config] = None, path:str = None):
         self.config = config or Config()
-        self.data_dir = Path("/Users/proxxy/Documents/1/data")
+        self.data_dir = Path("Your/path//to/data")
         self.data_dir.mkdir(exist_ok=True)
         
        
