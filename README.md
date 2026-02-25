@@ -188,7 +188,7 @@ burstlocker/
 ├── requirements.txt         # Python dependencies
 ├── README.md               # This file
 ├── LICENSE                 # MIT License
-└── data/                   # Data directory (created on first run)
+└── data/                   # Your ata directory (created on first run)
     ├── targets.txt
     ├── sessions.json
     ├── net_config.json
