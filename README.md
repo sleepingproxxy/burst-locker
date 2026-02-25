@@ -1,4 +1,3 @@
-Here's a comprehensive README.md for your Telegram reporter tool:
 
 ```markdown
 # BurstLocker - Telegram Account Reporter Tool
